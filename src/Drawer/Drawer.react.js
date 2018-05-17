@@ -46,6 +46,7 @@ class Drawer extends PureComponent {
                 <ScrollView 
                     style={styles.container} 
                     scrollEnabled={scrollEnabled}
+                    contentContainerStyle={styles.container}
                 >
                     {children}
                 </ScrollView>
