@@ -14,9 +14,11 @@ const propTypes = {
     style: PropTypes.shape({
         container: ViewPropTypes.style,
     }),
+    scrollEnabled: PropTypes.bool,
 };
 const defaultProps = {
     style: {},
+    scrollEnabled: true
 };
 const contextTypes = {
     uiTheme: PropTypes.object.isRequired,
@@ -35,13 +37,16 @@ function getStyles(props, context) {
 
 class Drawer extends PureComponent {
     render() {
-        const { children } = this.props;
+        const { children, scrollEnabled } = this.props;
 
         const styles = getStyles(this.props, this.context);
 
         return (
             <Container>
-                <ScrollView style={styles.container}>
+                <ScrollView 
+                    style={styles.container} 
+                    scrollEnabled={scrollEnabled}
+                >
                     {children}
                 </ScrollView>
             </Container>
